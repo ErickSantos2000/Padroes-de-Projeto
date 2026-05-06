@@ -12,7 +12,7 @@ public class PedidoService {
             total += item.getPreco() * item.getQuantidade();
         }
 
-        pedido.setTotal(pedido.processarPagamento(total));
+        pedido.pagar(total);
 
         // Salva no banco de dados
         pedidos.add(pedido);

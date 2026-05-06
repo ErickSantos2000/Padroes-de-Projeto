@@ -12,8 +12,10 @@ public class Pedido {
         this.formaPagamento = formaPagamento;
     }
 
-    public double processarPagamento(double valor){
-        return formaPagamento.processarPagamento(valor);
+    public double pagar(double valor){
+        double valorProcessado = formaPagamento.pagar(valor);
+        this.setTotal(valorProcessado);
+        return formaPagamento.pagar(valorProcessado);
     }
 
     // formaPagamento get e set

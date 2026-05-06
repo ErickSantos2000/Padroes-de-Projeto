@@ -1,3 +1,3 @@
 public interface FormaPagamengo {
-    public abstract double processarPagamento(double valor);
+    public abstract double pagar(double valor);
 }

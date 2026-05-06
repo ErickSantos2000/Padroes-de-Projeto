@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SistemaPedidos {
+public class PedidoService {
     private List<Pedido> pedidos = new ArrayList<>();
 
 
@@ -11,19 +11,13 @@ public class SistemaPedidos {
         for (Item item : pedido.getItens()) {
             total += item.getPreco() * item.getQuantidade();
         }
-        pedido.setTotal(total);
 
-        // Valida o pagamento
-        if (pedido.getFormaPagamento().equals("Cartão")) {
-            System.out.println("Processando cartão...");
-        } else if (pedido.getFormaPagamento().equals("Boleto")) {
-            System.out.println("Gerando boleto...");
-        }
+        pedido.setTotal(pedido.processarPagamento(total));
 
         // Salva no banco de dados
         pedidos.add(pedido);
         pedido.setId(pedidos.size());
-        System.out.println("Total: " + total);
+        System.out.println("Total: " + pedido.getTotal());
         System.out.println("Pedido salvo: " + pedido.getId());
     }
 }

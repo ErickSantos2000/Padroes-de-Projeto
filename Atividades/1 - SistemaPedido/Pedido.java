@@ -5,19 +5,23 @@ public class Pedido {
     
     private List<Item> itens = new ArrayList<>();
     private double total; 
-    private String formaPagamento;
+    private FormaPagamengo formaPagamento;
     private int id;
 
-    public Pedido(String formaPagamento){
+    public Pedido(FormaPagamengo formaPagamento){
         this.formaPagamento = formaPagamento;
+    }
+
+    public double processarPagamento(double valor){
+        return formaPagamento.processarPagamento(valor);
     }
 
     // formaPagamento get e set
-    public void setFormaPagamento(String formaPagamento) {
+    public void setFormaPagamento(FormaPagamengo formaPagamento) {
         this.formaPagamento = formaPagamento;
     }
 
-    public String getFormaPagamento() {
+    public FormaPagamengo getFormaPagamento() {
         return formaPagamento;
     }
 
